@@ -1,0 +1,21 @@
+package com.example.jpa.user.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
+public class ResponseMessageHeader {
+
+    private Boolean result;
+
+    private String resultCode;
+
+    private String message;
+
+    private int status;
+}

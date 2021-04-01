@@ -1,0 +1,368 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+GET http://localhost:8080/api/notice
+
+###
+POST http://localhost:8080/api/notice
+Content-Type: application/json
+
+{
+    "title":"제제제제제ㅔ쩾제ㅔ젲제ㅔ제ㅔ쩨제",
+  "contents": "내ㅐㄴ내내ㅐㄴ내내내내내ㅐㄴ냐ㅐ뇽용내ㅐㄴ내내ㅐㄴ내내내내내ㅐㄴ냐ㅐ뇽용내ㅐㄴ내내ㅐㄴ내내내내내ㅐㄴ냐ㅐ뇽용"
+}
+
+###
+GET http://localhost:8080/api/notice/2
+
+###
+PUT http://localhost:8080/api/notice/4
+Content-Type: application/json
+
+{
+  "title":"수정",
+  "contents":"수정"
+}
+
+###
+PATCH http://localhost:8080/api/notice/3/hits
+
+###
+
+DELETE http://localhost:8080/api/notice/3
+
+###
+DELETE http://localhost:8080/api/notice
+Content-Type: application/json
+
+{
+  "idList": [1,2]
+}
+
+###
+DELETE http://localhost:8080/api/notice/all
+
+###
+
+GET http://localhost:8080/api/notice/5
+
+###
+
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "userNm": "hdjin92",
+  "email": "handevelop@naver.com",
+  "phone": "010-9890-6925",
+  "password": "1234567890"
+}
+
+###
+PUT http://localhost:8080/api/user/1
+Content-Type: application/json
+
+{
+  "phone": "010-4890-6925"
+}
+
+###
+GET http://localhost:8080/api/user/4
+
+###
+GET http://localhost:8080/api/user/1/notice
+
+###
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "userNm": "hdjin93",
+  "email": "handevelop@naver.com2",
+  "phone": "010-9890-6925",
+  "password": "1234567890"
+}
+
+###
+PATCH http://localhost:8080/api/user/5/password
+Content-Type: application/json
+
+{
+  "password": "123456789",
+  "newPassword": "1234567890"
+}
+
+###
+DELETE http://localhost:8080/api/user/4
+
+###
+GET http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "userNm": "hdjin93",
+  "phone": "010-9890-6925"
+}
+
+###
+GET http://localhost:8080/api/user/1/password/reset
+
+###
+GET http://localhost:8080/api/user/1/notice/like
+
+###
+POST http://localhost:8080/api/user/login
+Content-Type: application/json
+
+{
+  "email": "handevelop@naver.com2",
+  "password": "1234567890"
+}
+
+###
+PATCH http://localhost:8080/api/user/login
+Content-Type: application/json
+TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5MDc0NzM3fQ.CzvXBUBMnPF7jXS2cOoUf2t_FgXqxsCKUVuBY6U_MBWZzdZSaJA-Arws_Q7-YQHPdNYTqQL-DtI_ev9ozNp0RA
+
+
+
+
+###
+###
+###INSERT INTO PAY_USER VALUES (1, 500000, 'develop@naver.com', '한동진', '1234567890', '010-9890-6666', '2021-03-31 23:59:59.000000');
+#INSERT INTO PAY_USER VALUES (2, 300000, 'develop2@naver.com', '이강호', '1234567890', '010-1111-2222', '2021-03-31 23:59:59.000000');
+#INSERT INTO PAY_USER VALUES (3, 1500000, 'develop3@naver.com', '박민혁', '1234567890', '010-3333-4444', '2021-03-31 23:59:59.000000');
+POST http://localhost:8080/api/pay/user
+Content-Type:application/json
+
+{
+  "totalInvestingAmount": 500000,
+  "email": "develop1@kakao.com",
+  "userNm": "한동진",
+  "password": "1234567890",
+  "phone": "010-1111-2222"
+}
+###
+POST http://localhost:8080/api/pay/user
+Content-Type:application/json
+
+{
+  "totalInvestingAmount": 500000,
+  "email": "develop2@kakao.com",
+  "userNm": "이강호",
+  "password": "123456789",
+  "phone": "010-2222-3333"
+}
+###
+POST http://localhost:8080/api/pay/user
+Content-Type:application/json
+
+{
+  "totalInvestingAmount": 500000,
+  "email": "develop3@kakao.com",
+  "userNm": "박민혁",
+  "password": "12345678",
+  "phone": "010-3333-4444"
+}
+###
+POST http://localhost:8080/api/pay/login
+Content-Type: application/json
+
+{
+  "email": "develop3@kakao.com",
+  "password": "123456789"
+}
+
+###
+POST http://localhost:8080/api/pay/invest
+Content-Type: application/json
+X-USER-ID: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLrsJXrr7ztmIEiLCJ1c2VyX2lkIjoxLCJpc3MiOiJkZXZlbG9wM0BuYXZlci5jb20iLCJleHAiOjE2MTUzNjk3NzF9.AmoTn1XQW0UXKGIc49XxLKyUjEvGvoIeHWPIkBoNb_hPaivIutczPMZ6CF6qxl6r4LUcgFYhy4bVLYA9Drx_yw
+
+{
+  "investAmount": 1500000,
+  "id": 2
+}
+
+###
+GET http://localhost:8080/api/admin/user
+
+###
+GET http://localhost:8080/api/admin/user/4
+
+###
+GET http://localhost:8080/api/admin/user/search
+Content-Type: application/json
+
+{
+  "email":"@naver.com",
+  "phone":"1111",
+  "userName":"박"
+}
+
+###
+PATCH http://localhost:8080/api/admin/user/1/status
+Content-Type: application/json
+
+{
+  "status": 2
+}
+
+###
+DELETE http://localhost:8080/api/admin/user/4
+
+###
+GET http://localhost:8080/api/admin/user/login/history
+
+###
+PATCH http://localhost:8080/api/admin/user/3/lock
+
+###
+GET http://localhost:8080/api/admin/user/status/count
+
+###
+GET http://localhost:8080/api/admin/user/today
+
+###
+GET http://localhost:8080/api/admin/user/notice/count
+
+###
+GET http://localhost:8080/api/admin/user/log/count
+
+###
+GET http://localhost:8080/api/admin/user/count/best
+
+###
+POST http://localhost:8080/api/board/type
+Content-Type: application/json
+
+{
+  "name" : "게시판3"
+}
+
+###
+PATCH http://localhost:8080/api/board/type/1
+Content-Type: application/json
+
+{
+  "name" : "게시판3"
+}
+
+###
+DELETE http://localhost:8080/api/board/type/1
+
+###
+PATCH http://localhost:8080/api/board/type/2/using
+Content-Type: application/json
+
+{
+  "usingYn" : true
+}
+###
+GET http://localhost:8080/api/board/type
+
+###
+GET http://localhost:8080/api/board/type/count
+
+###
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "userNm": "hdjin93",
+  "email": "handevelop@naver.com2",
+  "phone": "010-9890-6925",
+  "password": "1234567890"
+}
+
+###
+POST http://localhost:8080/api/user/login
+Content-Type: application/json
+
+{
+  "email": "handevelop@naver.com2",
+  "password": "1234567890"
+}
+
+###
+POST http://localhost:8080/api/user/login
+Content-Type: application/json
+
+{
+  "email": "test@naver.com",
+  "password": "$2a$10$aVjtWrojTOJJStC5EFH6Z.nG/U4c0PXJke3pmYWElmS/M77dG3Ud2	"
+}
+
+###
+PUT http://localhost:8080/api/board/1/like
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5MjQxNzgyfQ.5Dae5QH2oYWzu5IQriQ0J5FUDNLOI4oXlCu-KbLZQU1UH177ltvBbny5DbTjiBnItcREpai5Cint9ESCPr2ZjA
+
+###
+PUT http://localhost:8080/api/board/1/badReport
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NTA3MDY1fQ.ONYgbwycTUUV6-TDocebmJDpUR1M63lGzhejcwvXVrqhnoiBD9zu8EzSmptl2v-PeFSz4pwtcdL_OuOURmYG5Q
+
+{
+  "comments": "그지같은 게시물"
+}
+
+###
+PUT http://localhost:8080/api/admin/board/1/scrap
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NjYxNTk4fQ.WKGoqlEWEnB6ie5gXe_piQ_GtiAxaX82w7Q4L_T_0LJ18wS8_kFb7YEYBzan1TO-kTRqE92-Cy98CwNL5cNCmQ
+
+###
+DELETE http://localhost:8080/api/admin/board/3/scrap
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NjYxNTk4fQ.WKGoqlEWEnB6ie5gXe_piQ_GtiAxaX82w7Q4L_T_0LJ18wS8_kFb7YEYBzan1TO-kTRqE92-Cy98CwNL5cNCmQ
+
+###
+PUT http://localhost:8080/api/admin/board/2/bookmark
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NjYzNTUzfQ.9CNVLYIgn7UhrTSiZ1Mcu4QQcbUhCx_7kYWC7H8up0L3b6qXlqNJtfRARk_wDWakPwYPbs2bvBUp4YkyelGnEA
+
+###
+DELETE http://localhost:8080/api/admin/board/2/bookmark
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NjYzNTUzfQ.9CNVLYIgn7UhrTSiZ1Mcu4QQcbUhCx_7kYWC7H8up0L3b6qXlqNJtfRARk_wDWakPwYPbs2bvBUp4YkyelGnEA
+
+###
+PUT http://localhost:8080/api/user/3/interest
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5Njg0NTM2fQ.eZ3siZfJHFsP6_4__WUPd9OQrrAaF_0AgB5G4drFdCQveb6LmzVTCc5s_oQEjfFEKxClvYwspWxnhDTttcX4AQ
+
+###
+GET http://localhost:8080/api/user/board/post
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5Njg2ODE0fQ.E9M3E8kwo7EARH8wUaHtj3EAh62nVwIVyAudAEsx20lurH9RWoitz9Q7mZEahXPzXZ7mQWOMHiBJxj0oBpXXog
+
+###
+GET http://localhost:8080/api/user/board/comment
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NzYxMTgxfQ.udskKn8Sg7HGt3kx71xpbFpvdoU8I3yG-j5IxcjvQTKAxZXHSab5jf3J20dYB2pZyD48g0hPC6IXqoJLRc3inA
+
+###
+POST http://localhost:8080/api/user/point
+Content-Type: application/json
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NzYyNTc4fQ.nhFE4EwzOQeW7-llgMHl_bcb25E6U86xqQ-8MappzbVdah9024MDGXcknI8yc1cTDdxjrDnIBeyyGICGC1NHgg
+
+
+{
+  "usrPointType": "ADD_COMMENT"
+}
+
+###
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "email": "handevelop@naver.com2",
+  "password": 1234567890
+}
+
+###
