@@ -15,6 +15,7 @@ import com.example.jpa.user.service.UserService;
 import com.example.jpa.util.JWTUtil;
 import com.example.jpa.util.PasswordUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -25,6 +26,7 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
@@ -47,12 +49,14 @@ public class ApiLoginController {
         try {
             user = userService.login(userLogin);
         } catch (BizException e) {
+            log.info("로그인 에러: " + e.getMessage());
             return ResponseResult.fail (e.getMessage ());
         }
 
         UserLoginToken userLoginToken = JWTUtil.createToken (user);
 
         if (userLoginToken == null) {
+            log.info("JWT 생성 에러");
             return ResponseResult.fail ("JWT 생성에 실패하였습니다.");
         }
         return ResponseResult.success (userLoginToken);

@@ -268,16 +268,7 @@ GET http://localhost:8080/api/board/type
 ###
 GET http://localhost:8080/api/board/type/count
 
-###
-POST http://localhost:8080/api/user
-Content-Type: application/json
 
-{
-  "userNm": "hdjin93",
-  "email": "handevelop@naver.com2",
-  "phone": "010-9890-6925",
-  "password": "1234567890"
-}
 
 ###
 POST http://localhost:8080/api/user/login
@@ -349,11 +340,21 @@ F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZC
 ###
 POST http://localhost:8080/api/user/point
 Content-Type: application/json
-F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5NzYyNTc4fQ.nhFE4EwzOQeW7-llgMHl_bcb25E6U86xqQ-8MappzbVdah9024MDGXcknI8yc1cTDdxjrDnIBeyyGICGC1NHgg
-
+F-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZGppbjkzIiwidXNlcl9pZCI6NSwiaXNzIjoiaGFuZGV2ZWxvcEBuYXZlci5jb20yIiwiZXhwIjoxNjE5ODgwODIxfQ.LWN1YhGeQRUOmXmdz-i52T1oejMXQbhvHzn5YpEEzkh4NgVPFpeSpv-n2jqekLyfhc2iTR-DAvrRXjObUh__aw
 
 {
   "usrPointType": "ADD_COMMENT"
+}
+
+###
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "userNm": "hdjin93",
+  "email": "handevelop@naver.com2",
+  "phone": "010-9890-6925",
+  "password": "1234567890"
 }
 
 ###
@@ -366,3 +367,4 @@ Content-Type: application/json
 }
 
 ###
+GET http://localhost:8080/api/board/1

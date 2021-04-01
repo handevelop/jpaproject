@@ -2,6 +2,7 @@ package com.example.jpa.user.service;
 
 import com.example.jpa.board.model.ServiceResult;
 import com.example.jpa.common.exception.BizException;
+import com.example.jpa.logs.service.LogService;
 import com.example.jpa.user.entity.User;
 import com.example.jpa.user.entity.UserInterest;
 import com.example.jpa.user.model.*;
@@ -25,6 +26,8 @@ public class UserServiceImpl implements UserService {
     private final UserCustomRepository userCustomRepository;
 
     private final UserInterestRepository userInterestRepository;
+
+    private final LogService logService;
 
     @Override
     public UserSummary getUserStatusCount() {
@@ -147,8 +150,10 @@ public class UserServiceImpl implements UserService {
         User user = optionalUser.get ();
 
         if (!PasswordUtil.equalPassword (userLogin.getPassword (), user.getPassword ())) {
-            throw new BizException ("비밀번호가 일치하지 않습니다.");
+            throw new BizException ("일치하는 정보가 없습니다.");
         }
+
+        logService.add(user.getUserName() + "로그인 시도");
 
         return user;
     }

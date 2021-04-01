@@ -1,11 +1,13 @@
 package com.example.jpa.board.controller;
 
 import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.example.jpa.board.entity.Board;
 import com.example.jpa.board.entity.BoardType;
 import com.example.jpa.board.model.*;
 import com.example.jpa.board.repository.BoardTypeRepository;
 import com.example.jpa.board.service.BoardService;
 import com.example.jpa.common.ResponseResult;
+import com.example.jpa.common.exception.BizException;
 import com.example.jpa.notice.model.ResponseError;
 import com.example.jpa.user.model.ResponseMessage;
 import com.example.jpa.util.JWTUtil;
@@ -189,6 +191,19 @@ public class ApiBoardController {
         return ResponseResult.result (result);
     }
 
+    @GetMapping("/board/{id}")
+    public ResponseEntity<?> detail(@PathVariable Long id) {
+
+        Board board = null;
+
+        try {
+            board = boardService.detail(id);
+        } catch (BizException e) {
+            return ResponseResult.fail(e.getMessage());
+        }
+
+        return ResponseResult.success(board);
+    }
 
 
 }
