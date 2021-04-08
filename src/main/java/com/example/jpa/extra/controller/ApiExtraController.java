@@ -1,9 +1,14 @@
 package com.example.jpa.extra.controller;
 
+import com.example.jpa.common.ResponseResult;
+import com.example.jpa.extra.model.OpenApiResult;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +24,7 @@ import java.util.Collections;
 public class ApiExtraController {
 
     @GetMapping("/extra/pharmacy")
-    public String pharmacy() {
+    public ResponseEntity<?> pharmacy() {
 
         String serviceKey = "444T70uHPYdXnZ%2B0q%2Fv0wKcypwdztoN88jp5A0rYJ%2FafC13C1BSjRyYi%2BWPTSC03FOJh%2F6EYtin1EG9cWBXqzA%3D%3D";
         String url = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyFullDown?serviceKey=%s&pageNo=1&numOfRows=10";
@@ -36,6 +41,14 @@ public class ApiExtraController {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return result;
+        OpenApiResult openApiResult = null;
+
+        ObjectMapper objectMapper = new ObjectMapper ();
+        try {
+            openApiResult = objectMapper.readValue (result, OpenApiResult.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace ();
+        }
+        return ResponseResult.success (openApiResult);
     }
 }
